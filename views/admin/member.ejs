@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/admin/member.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>  
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>SneakerShop</title>
+</head>
+<body class="body">
+    <%- include('./admin/nav.ejs')%>
+    <section class="bg-section">
+        <div class="container"> 
+                <div class="row form-data">
+                    <div class="col-12 bg-detail p-5 mx-auto">
+                        <h3 class="mb-4">
+                            รายชื่อสมาขิก  <button type="button" class="btn btn-success bi bi-person-plus-fill ms-2" data-bs-toggle="modal" data-bs-target="#addModal">
+                                    </button>
+                        </h3>
+                      <div class="table-responsive text-nowrap">
+                        <table id="myTable" class="display table table-striped table-bordered p-3">
+                          <thead class="table-dark pt-5">
+                              <tr>
+                                  <th>Username</th>
+                                  <th>E-mail</th>
+                                  <th>FirstName</th>
+                                  <th>LastName</th>
+                                  <th>Sex</th>
+                                  <th>Status</th>
+                                  <th>Action</th>
+                              </tr>
+                          </thead>
+                          <tbody class="tbody table-light">
+                            <% Object.values(query).forEach(function(members){%>
+                              <tr>
+                                  <td><%= members.username%></td>
+                                  <td><%= members.email%></td>
+                                  <td><%= members.first_name%></td>
+                                  <td><%= members.last_name%></td>
+                                  <td><%= members.sex%></td>
+                                  <td><%= members.status%></td>
+                                  <td>
+                                    <form action="/admin/member/edit" method="POST">
+                                      <input type="hidden" name="edit" value="<%= members._id%>">
+                                      <button type="submit" class="action btn btn-warning bi bi-pencil-square"></button>
+                                      <button type="button" class="action btn btn-danger bi bi-trash delete" onclick="deleteMember('<%= members._id %>')"></button>
+                                    </form>
+                                </td>
+                              </tr>
+                            <%})%>
+                          </tbody>
+                      </table>
+                      </div>
+                    </div>
+                </div>
+        </div>
+
+        <!-- Start Add-Member -->
+          <div class="modal fade" id="addModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form method="POST">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="Label">Add Member</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <input class="form-control mb-3" type="text" name="username"  id="username" placeholder="ชื่อผู้ใช้">
+                      <input class="form-control mb-3" type="email" name="email" id="email" placeholder="อีเมล">
+                      <input class="form-control mb-3" type="password" name="password" id="password" placeholder="รหัสผ่าน" minlength="6" maxlength="15">
+                      <input class="form-control mb-3" type="text" name="first_name" id="first_name" placeholder="ชื่อ">
+                      <input class="form-control mb-3" type="text" name="last_name" id="last_name" placeholder="นามสกุล">
+                      <select class="form-select" name="sex" id="sex">
+                          <option disabled selected>เพศ</option>
+                          <option value="ชาย">ชาย</option>
+                          <option value="หญิง">หญิง</option>
+                      </select>
+                      <select class="form-select mt-3" name="status" id="status">
+                        <option disabled selected>สถานะ</option>
+                        <option value="administrator">Administrator</option>
+                        <option value="member">Member</option>
+                    </select>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="insertMember()">Add Member</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        <!-- Close Add-Member -->
+        
+    </section>
+    <%- include('footer.ejs')%>
+    <script>
+      $(document).ready(function () {
+        $("#myTable").DataTable();
+      });
+    </script>
+    <script src="../js/admin/member.js"></script>
+</body>
+</html>

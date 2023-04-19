@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/admin/product.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>SneakerShop</title>
+</head>
+<body class="body">
+    <%- include('./admin/nav.ejs')%>
+    <section class="bg-section-edit">
+        <div class="container"> 
+            <form method="POST">
+                <div class="row form-data-edit">
+                    <div class="col-6 mx-auto">
+                        <h3 class="text-center mt-5 mb-5">แก้ไขสินค้า <%= product[0].brand[0].nameBrand%> <br><%= product[0].nameProduct%></h3>
+                        <div class="row">
+                            <div class="col-12 col-lg-12 mb-3">
+                                <label>ชื่อสินค้า </label>
+                                <input class="form-control mb-3" type="hidden" id="id" value="<%= product[0]._id%>">
+                                <input class="form-control mb-3" type="hidden" id="nameOld" value="<%= product[0].nameProduct%>">
+                                <input class="form-control mb-3" type="text" id="nameProduct" value="<%= product[0].nameProduct%>">
+                            </div>
+
+                            <div class="col-12 col-md-4 col-lg-4 mb-3">
+                                <label>รหัสสินค้า </label>
+                                <input class="form-control mb-3" type="hidden" id="idProductOld" value="<%= product[0].idProduct%>">
+                                <input class="form-control mb-3" type="text" id="idProduct" pattern="^[a-zA-Z0-9]+$" 
+                                        title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" minlength="6" maxlength="6" placeholder="ไม่เกิน 6 ตัวอักษร" value="<%= product[0].idProduct%>">
+                            </div>
+    
+                            <div class="col-12 col-md-8 col-lg-4 mb-3">
+                                <label>แบรนด์สินค้า </label>
+                                <input class="form-control" type="hidden" id="brandOld" value="<%= product[0].brandProduct%>">
+                                <select class="form-select" id="brandProduct">
+                                    <option value="<%= product[0].brandProduct%>" selected><%= product[0].brand[0].nameBrand %> <-ปัจจุบัน</option>
+                                    <% Object.values(queryBrand).forEach(function(brand){%>
+                                    <option value="<%= brand.idBrand%>"><%= brand.nameBrand%></option>
+                                <%})%>
+                                </select>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                <label>ไซต์รองเท้า </label>
+                                <select class="form-select" id="sizeProduct">
+                                    <option value="<%= product[0].sizeProduct%>" selected><%= product[0].sizeProduct %> <-ปัจจุบัน</option>
+                                    <option value="4 US">4 US</option>
+                                    <option value="5 US">5 US</option>
+                                    <option value="6 US">6 US</option>
+                                    <option value="7 US">7 US</option>
+                                    <option value="8 US">8 US</option>
+                                    <option value="9 US">9 US</option>
+                                    <option value="10 US">10 US</option>
+                                    <option value="11 US">11 US</option>
+                                    <option value="12 US">12 US</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                <label>ราคาสินค้า / บาท</label>
+                                <input class="form-control" type="text" id="priceProduct" pattern="^[0-9]+$" title="ตัวเลขเท่านั้น" value="<%= product[0].priceProduct%>">
+                            </div>
+
+                            <div class="col-12 col-md-7 col-lg-4 mb-3">
+                                <label>ประเภทผู้ซื้อ</label>
+                                <select class="form-select" id="sex">
+                                    <option value="<%= product[0].sex%>" selected><%= product[0].sex%> <-ปัจจุบัน</option>
+                                    <option value="รองเท้าผู้ชาย">รองเท้าผู้ชาย</option>
+                                    <option value="รองเท้าผู้หญิง">รองเท้าผู้หญิง</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 col-md-5 col-lg-4 mb-3">
+                                <label>จำนวนสินค้า / ชิ้น</label>
+                                <input class="form-control" type="text" id="quantityProduct" pattern="^[0-9]+$" title="ตัวเลขเท่านั้น" value="<%= product[0].quantityProduct%>">
+                            </div>
+
+                            <div class="col-12">
+                                <label>รูปภาพสินค้า</label>
+                                <input class="form-control" type="hidden" id="OldPic" value="<%= product[0].imageProduct%>">
+                                <input class="form-control mb-3" type="file" id="imageProduct" value="<%= product[0].imageProduct%>" onchange="validateFileEdit()" placeholder="รูปภาพสินค้า">
+                                <hr>
+                                <img    src="../../image/product/<%= product[0].brandProduct%>/<%= product[0].nameProduct%>/<%= product[0].imageProduct%>" 
+                                        id="preview" class="rounded mx-auto d-block" width="30%">  
+                            </div>
+
+                            <div class="col-12 text-center mt-5 mb-5">
+                                <button type="button" class="button btn btn-success" onclick="updateProduct()">Save</button>
+                                <a href="/admin/product" class="button btn btn-danger">ยกเลิก</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <%- include('footer.ejs')%>
+    <script src="../../js/admin/product.js"></script>
+</body>
+</html>

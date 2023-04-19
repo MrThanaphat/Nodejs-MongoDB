@@ -1,0 +1,37 @@
+[{
+  "_id": {
+    "$oid": "64325fb4f60a46ef704890e6"
+  },
+  "username": "administrator",
+  "email": "administrator@gmail.com",
+  "password": "123456789Za",
+  "first_name": "administrator",
+  "last_name": "administrator",
+  "sex": "ชาย",
+  "status": "administrator",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643270435a837329a1e6ab63"
+  },
+  "username": "user01",
+  "email": "user@user.com",
+  "password": "123456789",
+  "first_name": "user",
+  "last_name": "user",
+  "sex": "ชาย",
+  "status": "member",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432748fc908db0dd71e2711"
+  },
+  "username": "user02",
+  "email": "user2@user.com",
+  "password": "123456",
+  "first_name": "user2",
+  "last_name": "user2",
+  "sex": "หญิง",
+  "status": "member",
+  "__v": 0
+}]

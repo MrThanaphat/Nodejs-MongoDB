@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.body{
+    background-color: rgb(0, 0, 0);
+}
+/* Open Nav */
+.bg-nav{
+    background-color: rgb(0, 0, 0);
+}
+.name-web{
+    padding-left: 5%;
+    color: white;
+    font-size: 30px;
+}
+.member{
+    background-color: black;
+}
+@media screen and (min-width:280px) and (max-width: 760px){
+    .icon_member{
+        padding-left: 100%;
+    }
+}
+.icon_member{
+    font-size: 30px;
+    color: white;
+}
+.dropdown-toggle{
+    text-decoration: none;
+    color: white;
+}
+/* Close Nav */
+
+/* Open Section */
+.bg-section{
+    padding: 100px;
+    background-color: rgb(228, 228, 228);
+}
+.form-data{
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 50px;
+}
+.bg-section-edit{
+    height: 70vh;
+    padding: 125px 20px 20px 20px;
+    background-color: rgb(228, 228, 228);
+}
+.form-data-edit{
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 50px;
+}
+.button{
+    text-align: center;
+}
+/* Close section */
+
+/* Open footer */
+.bg-footer{
+    color: white;
+    display: flex;
+    background-color: rgb(0, 0, 0);
+}
+.contect a{
+    margin: 10px;
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+}
+.contect a:hover{
+    color: rgb(138, 138, 138);
+}
+.contect .icon{
+    font-size: 20px;
+}
+.contect .name{
+    font-size: 15px;
+    margin: 0px 0px 0px 10px;
+}
+/* Close footer */

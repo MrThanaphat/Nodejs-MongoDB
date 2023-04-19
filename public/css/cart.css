@@ -1,0 +1,260 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Kodchasan;
+}
+
+/* Open Nav */
+.bg-nav{
+    background-color: rgb(0, 0, 0);
+}
+.nav-item a{
+    border: 2px solid rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    margin: 0px 0px 0px 30px;
+}
+.nav-item a:hover{
+    color: rgb(255, 255, 255);
+    border-radius: 3px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+.navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.navbar-home .navbar-brand{
+    color: rgb(255, 255, 255);
+}
+.navbar-home .navbar-brand:hover{
+    color: rgb(255, 255, 255);
+}
+.search{
+    width: 50%;
+}
+@media screen and (min-width: 280px) and (max-width: 950px){
+    .search{
+        width: 100%;
+    }
+}
+.search .form-control{
+    border-radius: 10px 00px 0px 10px;
+}
+.search button{
+    color: white;
+    border-radius: 0px 10px 10px 0px;
+}
+.member{
+    position: relative;
+    background-color: black;
+}
+.icon_member{
+    position: absolute;
+    font-size: 25px;
+    color: white;
+    top: 7px;
+}
+.cart{
+    position: relative;
+    background-color: black;
+}
+.icon_cart{
+    font-size: 25px;
+    position: absolute;
+    color: white;
+    top:7px;
+    right:20px;
+    background-color: black;
+}
+.product-number{
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    font-size: 15px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    top: 9px;
+    right: 10px;
+    color: rgb(0, 0, 0);
+    border-radius: 100%;
+}
+/* Close Nav */
+
+/* Open Section */
+.bg-section{
+    padding: 50px 0px 200px 0px;
+}
+.quantityProduct{
+    width: 30px;
+}
+.test{
+    height: 100%;
+}
+.list_name::before {
+    content: "รายการสินค้า";
+  }
+  .delivery_name::before {
+    content: "การจัดส่งสินค้า";
+  }
+  .order_summary::before{
+    content: "สรุปคำสั่งซื้อ";
+  }
+.list_icon, .delivery_icon, .order_icon{
+    display: none;
+  }
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    padding: 5px;
+    justify-items: center;
+    margin-right: 15px;
+}
+.cart-status-2, .cart-status-3, .cart-status-4{
+    width:200px;
+    text-align: center;
+    font-size: 15px;
+    color: black;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: rgb(201, 201, 201);
+}
+.cart-status-1{
+    width:200px;
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: rgb(75, 75, 75);
+}
+
+.delivery-status-1, .delivery-status-3, .delivery-status-4{
+    width:200px;
+    text-align: center;
+    font-size: 15px;
+    color: black;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: rgb(201, 201, 201);
+}
+.delivery-status-2{
+    width:200px;
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: rgb(75, 75, 75);
+}
+
+.order-status-1, .order-status-2, .order-status-4{
+    width:200px;
+    text-align: center;
+    font-size: 15px;
+    color: black;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: rgb(201, 201, 201);
+}
+.order-status-3{
+    width:200px;
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: rgb(75, 75, 75);
+}
+
+@media screen and (max-width: 920px){
+    .cart-status-2, .cart-status-3, .cart-status-4{
+        width:80px;
+        font-size: 15px;
+        color: black;
+        border-radius: 10px;
+        background-color: rgb(201, 201, 201);
+    }
+    .cart-status-1{
+        width:80px;
+        font-size: 15px;
+        color: white;
+        border-radius: 10px;
+        background-color: rgb(75, 75, 75);
+    }
+
+    .delivery-status-1, .delivery-status-3, .delivery-status-4{
+        width: 80px;
+        font-size: 15px;
+        color: black;
+        border-radius: 10px;
+        background-color: rgb(201, 201, 201);
+    }
+    .delivery-status-2{
+        width: 80px;
+        font-size: 15px;
+        color: white;
+        border-radius: 10px;
+        background-color: rgb(75, 75, 75);
+    }
+
+    .order-status-1, .order-status-2, .order-status-4{
+        width: 80px;
+        font-size: 15px;
+        color: black;
+        border-radius: 10px;
+        background-color: rgb(201, 201, 201);
+    }
+    .order-status-3{
+        width: 80px;
+        font-size: 15px;
+        color: white;
+        border-radius: 10px;
+        background-color: rgb(75, 75, 75);
+    }
+
+    .list_name::before, .delivery_name::before, .order_summary::before{
+        display: none;
+      }
+      .list_icon, .delivery_icon, .order_icon{
+        font-size: 30px;
+        display: block;
+      }
+   }
+   .right{
+    text-align: right;
+   }
+   .left{
+    text-align: left;
+   }
+  .btnEmpty {
+    float: right;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .text-heading{
+    font-size: 1.5rem;
+  }
+/* Close section */
+
+/* Open footer */
+.bg-footer{
+    color: white;
+    display: flex;
+    background-color: rgb(0, 0, 0);
+}
+.contect a{
+    margin: 10px;
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+}
+.contect a:hover{
+    color: rgb(138, 138, 138);
+}
+.contect .icon{
+    font-size: 20px;
+}
+.contect .name{
+    font-size: 15px;
+    margin: 0px 0px 0px 10px;
+}
+/* Close footer */

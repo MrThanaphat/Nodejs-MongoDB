@@ -1,0 +1,105 @@
+[{
+  "_id": {
+    "$oid": "6438fc2297593c0ebb5665a0"
+  },
+  "imageProduct": "1681456162118.jpg",
+  "idProduct": "C00001",
+  "brandProduct": "B0001",
+  "nameProduct": "RUN STAR MOTION CANVAS PLATFORM HI BLACK",
+  "sizeProduct": "10 US",
+  "priceProduct": 3700,
+  "sex": "รองเท้าผู้ชาย",
+  "quantityProduct": 2,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6438fc5497593c0ebb5665a6"
+  },
+  "imageProduct": "1681639629006.jpg",
+  "idProduct": "C00002",
+  "brandProduct": "B0001",
+  "nameProduct": "RUN STAR MOTION CANVAS PLATFORM HI WHITE",
+  "sizeProduct": "10 US",
+  "priceProduct": 3700,
+  "sex": "รองเท้าผู้ชาย",
+  "quantityProduct": 2,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64399598e55c8dc13e4be933"
+  },
+  "imageProduct": "1681495448772.jpg",
+  "idProduct": "C00003",
+  "brandProduct": "B0002",
+  "nameProduct": "Air Jordan 1 Retro High OG Craft",
+  "sizeProduct": "10 US",
+  "priceProduct": 6600,
+  "sex": "รองเท้าผู้ชาย",
+  "quantityProduct": 2,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64399749e55c8dc13e4be94e"
+  },
+  "imageProduct": "1681495881904.jpg",
+  "idProduct": "C00004",
+  "brandProduct": "B0002",
+  "nameProduct": "Air Jordan 1 Retro High OG",
+  "sizeProduct": "8 US",
+  "priceProduct": 6300,
+  "sex": "รองเท้าผู้หญิง",
+  "quantityProduct": 2,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643f7c9d7482bf175db4d5d1"
+  },
+  "imageProduct": "1681882269969.jpg",
+  "idProduct": "C00005",
+  "brandProduct": "B0002",
+  "nameProduct": "Air Max 90 Futura",
+  "sizeProduct": "8 US",
+  "priceProduct": 5400,
+  "sex": "รองเท้าผู้หญิง",
+  "quantityProduct": 1,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643f8212053592ea23f8c9fc"
+  },
+  "imageProduct": "1681883666119.jpg",
+  "idProduct": "C00006",
+  "brandProduct": "B0002",
+  "nameProduct": "Air Max 90",
+  "sizeProduct": "7 US",
+  "priceProduct": 5200,
+  "sex": "รองเท้าผู้หญิง",
+  "quantityProduct": 1,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643f8234053592ea23f8ca00"
+  },
+  "imageProduct": "1681883700927.jpg",
+  "idProduct": "C00007",
+  "brandProduct": "B0002",
+  "nameProduct": "Air Max SC SE",
+  "sizeProduct": "7 US",
+  "priceProduct": 3000,
+  "sex": "รองเท้าผู้หญิง",
+  "quantityProduct": 1,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643f82fd2c2dc56f6f17f623"
+  },
+  "imageProduct": "1681883901928.jpg",
+  "idProduct": "C00008",
+  "brandProduct": "B0002",
+  "nameProduct": "Blazer Low '77 Premium",
+  "sizeProduct": "9 US",
+  "priceProduct": 3600,
+  "sex": "รองเท้าผู้ชาย",
+  "quantityProduct": 1,
+  "__v": 0
+}]

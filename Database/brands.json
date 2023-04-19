@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "6438fb12e6b0f16d3592ea51"
+  },
+  "idBrand": "B0001",
+  "nameBrand": "Converse",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64390dcf92051a2da37aecdf"
+  },
+  "idBrand": "B0002",
+  "nameBrand": "Nike",
+  "__v": 0
+}]

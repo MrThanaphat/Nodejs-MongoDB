@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/cart.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kodchasan">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>SneakerShop</title>
+</head>
+<body>
+    <%- include('nav.ejs')%>
+    <section class="bg-section">
+        <div class="container">
+            <div class="row mt-5 text-center">
+                <div class="col-4 col-md-4 col-lg-4 mb-4">
+                    <label class="cart-status-1">
+                        <span class="list_name"></span>
+                        <span class="list_icon bi bi-cart3"></span>
+                    </label>
+                </div>
+                <div class="col-4 col-md-4 col-lg-4 mb-4">
+                    <label class="cart-status-2">
+                        <span class="delivery_name"></span>
+                        <span class="delivery_icon bi bi-truck"></span>
+                    </label>
+                </div>
+                <div class="col-4 col-md-4 col-lg-4 mb-4">
+                    <label class="cart-status-3">
+                        <span class="order_summary"></span>
+                        <span class="order_icon bi bi-clipboard-check"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mt-5 mb-4 fw-bold">
+                    <span class="text-heading">ตะกร้าสินค้า</span>
+                    <button class="btn btn-outline-danger btnEmpty fw-bold" onclick="destroyCart()">ล้างตะกร้า</button>
+                    <hr>
+                </div>
+                <% if (cartQuantity === 0) { %>
+                    <div class="text-center fw-bolder text-danger mt-5 mb-5">ไม่มีสินค้าในตะกร้า</div>
+                  <% } else { %>
+                        <div class="col-12 col-md-8 col-lg-9">
+                            <div class="table-responsive text-nowrap">
+                                <table class="table">
+                                    <thead class="table-dark">
+                                    <tr class="text-center">
+                                        <th>ลำดับ</th>
+                                        <th>รูปสินค้า</th>
+                                        <th>ชื่อสินค้า</th>
+                                        <th>จำนวน</th>
+                                        <th>ราคา</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% cart.map((carts, index) => { %>
+                                            <tr class="align-middle">
+                                                <th class="text-center"><%= index + 1 %></th>
+                                                <td class="text-center"><img src="./image/product/<%= carts.brandProduct %>/<%= carts.nameProduct %>/<%= carts.imageProduct %>" height="90px"></td>
+                                                <td>
+                                                    <%= carts.brand[0].nameBrand %> <%= carts.nameProduct %><br>
+                                                    <%= carts.sex %> จำนวนคงเหลือ <%= carts.quantityProduct %> ชิ้น
+                                                </td>
+                                                <td class="text-center">
+                                                        <%= carts.quantity %>
+                                                </td>
+                                                <td class="text-center"><%= carts.priceProduct.toLocaleString() %> บาท</td>
+                                                <td><button class="btn btn-danger" onclick="deleteItem('<%= carts.idProduct %>')">X</button></td>
+                                            </tr>
+                                        <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 col-lg-3 text-center">
+                            <table class="table">
+                                <thead class="table-dark">
+                                    <th colspan="2">สรุปการสั่งซื้อ</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="left">รวม</td>
+                                        <td class="right">
+                                            <%= sumPrice.toLocaleString() %>   บาท
+                                        </td>
+                                        <input type="hidden" name="price" value="<?php echo $Total_Price;?>">
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="table">
+                                <thead class="table-dark">
+                                    <th colspan="2">ที่อยู่การจัดส่ง</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="left">ชื่อ-นามสกุล</td>
+                                        <td class="right"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">อีเมล</td>
+                                        <td class="right"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">ที่อยู่</td>
+                                        <td class="right"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">เบอร์โทรศัพท์</td>
+                                        <td class="right"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a href="/carts/delivery" class="btn btn-lg btn-success">ดำเนินการต่อ</a>
+                        </div>
+                  <% } %>
+            </div>
+        </div>
+    </section>
+    <%- include('footer.ejs')%>
+    <script src="js/carts.js"></script>
+</body>
+</html>
